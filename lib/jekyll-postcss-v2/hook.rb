@@ -29,7 +29,7 @@ module PostCssV2
 
     def process(page)
       file_path = Pathname.new(page.site.dest + page.url)
-      postcss_command = `#{@script} #{file_path} -r --config #{@config}`
+      postcss_command = `#{@script} "#{file_path}" -r --config #{@config}`
       Jekyll.logger.info "PostCSS v2:",
                          "Rewrote #{page.url} #{postcss_command}"
     end
